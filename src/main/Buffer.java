@@ -2,26 +2,37 @@ package main;
 
 public class Buffer {
 
-	int valor;
-	boolean disponivel;
-	
-	//Define o buffer se ele existe ou não
-	public Buffer() {
-		valor = 0;
-		disponivel = false;
-	}
-	//Função para colocar o número de itens
-	public void coloca(int v) {
-		valor = v;
-		disponivel = true;
-	}
-	//Função para pegar o número de itens
-	public int pega() {
-		disponivel = false;
-		return valor;	
-	}
-	//Método que sempre retorna que o buffer está disponível
-	public boolean estaDisponivel() {
-		return disponivel;
-	}
+    int valor[];
+    int c = 0;
+    int i = 0, f = 0;
+
+    //Define o tamanho do buffer
+    public Buffer() {
+        valor = new int[5];
+    }
+
+    public boolean podeProduzir() {
+        return c < valor.length;
+    }
+
+    public boolean podeConsumir() {
+        return c > 0;
+    }
+    //Função para colocar o número de itens
+
+    public void produzir(int v) {
+        c++;
+        f = (f + 1) % valor.length;
+        valor[f] = v;
+        //.out.println("p" + f + "" + c);
+    }
+    //Função para pegar o número de itens
+
+    public int consumir() {
+        c--;
+        i = (i + 1) % valor.length;
+
+        //System.out.println("c" + i + "" + c);
+        return valor[i];
+    }
 }
