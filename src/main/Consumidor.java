@@ -28,7 +28,7 @@ public class Consumidor extends Thread {
                     e.printStackTrace();
                 }
             }
-
+          //Verifica se o buffer está disponível
             try {
                 semaforo.acquire();
                 if (!buffer.podeConsumir()) {
@@ -40,12 +40,11 @@ public class Consumidor extends Thread {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
-            //Verifica se o buffer está disponível
+            
             int v = buffer.consumir();
             //Escreve no console a quantidade de valor que o consumidor consumiu
             System.out.println("Consumidor " + id
                     + " consumiu o valor " + v);
-
             semaforo.release();
 
             try {

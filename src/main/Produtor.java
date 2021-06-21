@@ -28,7 +28,7 @@ public class Produtor extends Thread {
                     e.printStackTrace();
                 }
             }
-
+          //Verifica se o buffer não está disponível
             try {
                 semaforo.acquire();
                 if (!buffer.podeProduzir()) {
@@ -42,7 +42,6 @@ public class Produtor extends Thread {
             }
             //Cria um valor aleatório para produzir
             int v = (int) (Math.random() * 1000.0);
-            //Verifica se o buffer não está disponível
             buffer.produzir(v);
             //Escreve no console a quantidade de valor que o produtor produziu
             System.out.println("Produtor " + id
