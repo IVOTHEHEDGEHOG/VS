@@ -7,6 +7,7 @@ public class Produtor extends Thread {
     Buffer buffer;
     Semaphore semaforo;
     int id;
+    int dormindo;
 
     //Construtor do produtor
     public Produtor(Buffer buffer, int id, Semaphore s) {
@@ -22,7 +23,9 @@ public class Produtor extends Thread {
             while (!buffer.podeProduzir()) {
                 //System.out.println("Produtor "+id+" esperando");
                 try {
-                    sleep(100);
+                	dormindo = (int) (Math.random() * 100.0);
+                    sleep (dormindo);
+                    System.out.println("Produtor dormindo por " + dormindo + " milissegundos");
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

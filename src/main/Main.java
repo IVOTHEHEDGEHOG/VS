@@ -12,7 +12,8 @@ public class Main {
         Scanner leitor = new Scanner(System.in);
         System.out.println("Numero de Produtor");
         int num = leitor.nextInt(); //Lendo o valor inserido pelo usuário
-        Produtor[] p = new Produtor[num];
+        
+        Produtor[] p = new Produtor[num]; //Instância do array de produtor
 
         for (int i = 0; i < p.length; i++) {
             p[i] = new Produtor(buffer, i, semaforo);
@@ -20,7 +21,7 @@ public class Main {
         System.out.println("Numero de Consumidor");
         num = leitor.nextInt(); //Lendo o valor inserido pelo usuário
 
-        Consumidor[] c = new Consumidor[num];
+        Consumidor[] c = new Consumidor[num]; //Instância do array de consumidor
 
         for (int i = 0; i < c.length; i++) {
             c[i] = new Consumidor(buffer, i, semaforo);

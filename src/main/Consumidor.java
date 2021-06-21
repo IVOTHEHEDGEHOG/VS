@@ -7,6 +7,7 @@ public class Consumidor extends Thread {
     Buffer buffer;
     Semaphore semaforo;
     int id;
+    int dormindo;
 
     //Construtor do consumidor
     public Consumidor(Buffer buffer, int id, Semaphore s) {
@@ -22,7 +23,9 @@ public class Consumidor extends Thread {
             while (!buffer.podeConsumir()) {
                 //System.out.println("Consumidor "+id+" esperando");
                 try {
-                    sleep(100);
+                	dormindo = (int) (Math.random() * 100.0);
+                    sleep (dormindo);
+                    System.out.println("Consumidor dormindo por " + dormindo + " milissegundos");
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
