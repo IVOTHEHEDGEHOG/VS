@@ -25,7 +25,7 @@ public class Consumidor extends Thread {
                 try {
                 	dormindo = (int) (Math.random() * 100.0);
                     sleep (dormindo);
-                    System.out.println("Consumidor dormindo por " + dormindo + " milissegundos");
+                    System.out.println("Consumidor "+id+" dormiu por " + dormindo + " milissegundos");
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

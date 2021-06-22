@@ -25,7 +25,7 @@ public class Produtor extends Thread {
                 try {
                 	dormindo = (int) (Math.random() * 100.0);
                     sleep (dormindo);
-                    System.out.println("Produtor dormindo por " + dormindo + " milissegundos");
+                    System.out.println("Produtor "+id+" dormiu por " + dormindo + " milissegundos");
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
